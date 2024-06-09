@@ -22,11 +22,11 @@ function CouresTable() {
   }, []);
   return (
     <div className="bg-white rounded-md p-4 sm:p-8 pb-10 ">
-      <h2 className="text-base font-semibold leading-7 text-gray-900">
+      <h2 className="text-base sm:text-xl font-semibold leading-7 text-gray-900">
         List of Courses
       </h2>
       <p className="mt-1 text-sm leading-6 text-gray-600">
-        Use a permanent address where you can receive mail.
+        Here is the list of courses.
       </p>
       <div className="mt-10 relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

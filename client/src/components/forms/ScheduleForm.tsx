@@ -68,7 +68,7 @@ export default function ScheduleForm() {
       }
       if (res.status === 201) {
         reset();
-        toast.success("Course created sucessfully");
+        toast.success("Lecture scheduled sucessfully");
       } else {
         toast.error("Something went wrong");
       }
@@ -88,7 +88,7 @@ export default function ScheduleForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="w- mx-auto">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base sm:text-xl font-semibold leading-7 text-gray-900">
               Create a Schedule
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
@@ -204,7 +204,7 @@ export default function ScheduleForm() {
                     {...register("date", {
                       required: {
                         value: true,
-                        message: "instructors is required",
+                        message: "date is required",
                       },
                     })}
                     id=""

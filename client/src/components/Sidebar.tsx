@@ -13,9 +13,9 @@ function Sidebar({}: Props) {
     <div className="hidden md:block col-span-2 px-3 py-3 bg-white h-[93vh]">
       <ul className="space-y-2 text-[#5d596c]">
         <Link
-          to="/"
+          to="/home"
           className={`flex items-center gap-1 transition-colors cursor-pointer hover:bg-[#f4f4f5] ${
-            pathname === "/" && "bg-[#f4f4f5] font-medium"
+            pathname === "/home" && "bg-[#f4f4f5] font-medium"
           } p-2 rounded-md`}
         >
           <BiHomeSmile className="text-lg" /> Home

@@ -102,7 +102,7 @@ export default function Login() {
                   {...register("password", {
                     required: {
                       value: true,
-                      message: "Email is required",
+                      message: "password is required",
                     },
                   })}
                   type="password"

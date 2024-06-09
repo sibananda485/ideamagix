@@ -36,7 +36,13 @@ function Navbar({}: Props) {
         </div>
         <h2 className="text-sm lg:text-base">Admin panel</h2>
         <div className="flex gap-3 items-center">
-          <button className="hidden sm:block bg-[#ff1700] text-white px-3 py-1 rounded-md text-[0.85rem] font-medium border-[0.5px] border-solid border-[#ff1700] transition-all duration-300 ease-in hover:bg-white hover:text-[#ff1700]">
+          <button
+            onClick={() => {
+              toast.success("logged out!");
+              navigate("/");
+            }}
+            className="hidden sm:block bg-[#ff1700] text-white px-3 py-1 rounded-md text-[0.85rem] font-medium border-[0.5px] border-solid border-[#ff1700] transition-all duration-300 ease-in hover:bg-white hover:text-[#ff1700]"
+          >
             Sign out
           </button>
         </div>
@@ -57,10 +63,10 @@ function Navbar({}: Props) {
               <li
                 onClick={() => {
                   setShowMobileMenu(false);
-                  navigate("/");
+                  navigate("/home");
                 }}
                 className={`flex items-center gap-1 transition-colors cursor-pointer hover:bg-[#f4f4f5] ${
-                  pathname === "/" && "bg-[#f4f4f5] font-medium"
+                  pathname === "/home" && "bg-[#f4f4f5] font-medium"
                 } p-2 rounded-md`}
               >
                 <BiHomeSmile className="text-lg" /> Home
@@ -112,7 +118,7 @@ function Navbar({}: Props) {
             </ul>
             <button
               onClick={() => {
-                toast.success("You have successfully logged out!");
+                toast.success("logged out!");
                 navigate("/");
               }}
               className="w-full bg-[#ff1700] text-white px-3 py-2 rounded-md text-[0.85rem] font-medium border-[0.5px] border-solid border-[#ff1700] transition-all duration-300 ease-in hover:bg-white hover:text-[#ff1700]"
