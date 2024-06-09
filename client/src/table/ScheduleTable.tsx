@@ -34,6 +34,7 @@ function ScheduleTable() {
       <p className="mt-1 text-sm leading-6 text-gray-600">
         Here is the list of schedules.
       </p>
+
       <div className="mt-10 relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -62,7 +63,7 @@ function ScheduleTable() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {value.date}
+                  {new Date(value.date).toDateString()}
                 </th>
                 <td className="px-6 py-4">{value.course.courseName}</td>
                 <td className="px-6 py-4">{value.batch.batchName}</td>
@@ -76,6 +77,12 @@ function ScheduleTable() {
           <p className="text-center my-10">🚫No data</p>
         )}
       </div>
+      <p className="text-sm mt-5 text-green-800">
+        Two <b> different</b> instructors can be scheduled on a same date
+      </p>
+      <p className="text-sm text-red-800">
+        Same instructor can't be scheduled on same day
+      </p>
     </div>
   );
 }
