@@ -26,13 +26,13 @@ export default function ScheduleForm() {
   const [instructor, setInstructor] = useState<InstructorInterface[]>([]);
   const getCourses = async () => {
     const res = await axios.get<CourseInterface[]>(
-      "http://localhost:8000/api/courses"
+      "https://ideamagix-ecru.vercel.app/api/courses"
     );
     setCourses(res.data);
   };
   const getInstructor = async () => {
     const res = await axios.get<InstructorInterface[]>(
-      "http://localhost:8000/api/instructor"
+      "https://ideamagix-ecru.vercel.app/api/instructor"
     );
     setInstructor(res.data);
   };
@@ -46,13 +46,16 @@ export default function ScheduleForm() {
     reset,
     watch,
     setValue,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
     // return;
     try {
-      const res = await axios.post("http://localhost:8000/api/schedule", data);
+      const res = await axios.post(
+        "https://ideamagix-ecru.vercel.app/api/schedule",
+        data
+      );
       console.log(data);
       if (res.status === 200 && res.data.message === "Not possible") {
         toast.error(
@@ -220,10 +223,11 @@ export default function ScheduleForm() {
 
         <div className="mt-6 flex items-center gap-x-6">
           <button
+            disabled={isSubmitting}
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Create
+            {isSubmitting ? "Creating.." : "Create"}
           </button>
           <button
             type="button"

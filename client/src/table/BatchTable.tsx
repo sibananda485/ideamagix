@@ -9,7 +9,7 @@ function BatchTable() {
   const [batches, setBatches] = useState<BatchInterface[]>([]);
   const getData = async () => {
     const res = await axios.get<BatchInterface[]>(
-      "http://localhost:8000/api/batches"
+      "https://ideamagix-ecru.vercel.app/api/batches"
     );
     setBatches(res.data);
   };

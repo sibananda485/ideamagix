@@ -11,7 +11,7 @@ function CouresTable() {
   const [courses, setCourses] = useState<CourseInterface[]>([]);
   const getData = async () => {
     const res = await axios.get<CourseInterface[]>(
-      "http://localhost:8000/api/courses"
+      "https://ideamagix-ecru.vercel.app/api/courses"
     );
     setCourses(res.data);
   };

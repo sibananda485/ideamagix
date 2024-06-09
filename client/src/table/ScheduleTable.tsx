@@ -17,7 +17,7 @@ function ScheduleTable() {
   const [schedule, setSchedule] = useState<ScheduleInterface[]>([]);
   const getData = async () => {
     const res = await axios.get<ScheduleInterface[]>(
-      "http://localhost:8000/api/schedule"
+      "https://ideamagix-ecru.vercel.app/api/schedule"
     );
     setSchedule(res.data);
   };

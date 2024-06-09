@@ -10,12 +10,12 @@ export default function InstructorForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors,isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/instructor",
+        "https://ideamagix-ecru.vercel.app/api/instructor",
         data
       );
       console.log(data);

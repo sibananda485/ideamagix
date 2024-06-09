@@ -8,7 +8,7 @@ function InstructorTable() {
   const [instructor, setInstructor] = useState<InstructorInterface[]>([]);
   const getData = async () => {
     const res = await axios.get<InstructorInterface[]>(
-      "http://localhost:8000/api/instructor"
+      "https://ideamagix-ecru.vercel.app/api/instructor"
     );
     setInstructor(res.data);
   };

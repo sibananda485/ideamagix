@@ -21,13 +21,14 @@ export default function BatchForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
-    // return;
     try {
-      const res = await axios.post("http://localhost:8000/api/batches", data);
+      const res = await axios.post(
+        "https://ideamagix-ecru.vercel.app/api/batches",
+        data
+      );
       console.log(data);
       if (res.status === 201) {
         reset();
@@ -45,7 +46,7 @@ export default function BatchForm() {
   };
   const getCourses = async () => {
     const res = await axios.get<CourseInterface[]>(
-      "http://localhost:8000/api/courses"
+      "https://ideamagix-ecru.vercel.app/api/courses"
     );
     setCourses(res.data);
   };
@@ -156,10 +157,11 @@ export default function BatchForm() {
 
         <div className="mt-6 flex items-center gap-x-6">
           <button
+            disabled={isSubmitting}
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Create
+            {isSubmitting ? "Creating.." : "Create"}
           </button>
           <button
             type="button"
