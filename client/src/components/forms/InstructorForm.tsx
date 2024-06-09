@@ -10,7 +10,7 @@ export default function InstructorForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors,isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -34,7 +34,7 @@ export default function InstructorForm() {
     }
   };
   return (
-    <div className="bg-white rounded-md p-8">
+    <div className="bg-white rounded-md p-4 sm:p-8">
       <form onSubmit={handleSubmit(onSubmit)} className="w- mx-auto">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">

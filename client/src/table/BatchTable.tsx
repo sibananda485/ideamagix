@@ -6,18 +6,20 @@ interface BatchInterface {
   totalStudents: string;
 }
 function BatchTable() {
+  const [loading, setLoading] = useState(true);
   const [batches, setBatches] = useState<BatchInterface[]>([]);
   const getData = async () => {
     const res = await axios.get<BatchInterface[]>(
       "https://ideamagix-ecru.vercel.app/api/batches"
     );
     setBatches(res.data);
+    setLoading(false);
   };
   useEffect(() => {
     getData();
   }, []);
   return (
-    <div className="bg-white rounded-md p-8">
+    <div className="bg-white rounded-md p-4 sm:p-8 pb-10 ">
       <h2 className="text-base font-semibold leading-7 text-gray-900">
         List of Courses
       </h2>
@@ -53,6 +55,7 @@ function BatchTable() {
             ))}
           </tbody>
         </table>
+        {loading && <p className="text-center my-10">Loading...</p>}
       </div>
     </div>
   );

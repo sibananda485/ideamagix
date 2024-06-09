@@ -10,7 +10,7 @@ type Props = {};
 function Sidebar({}: Props) {
   const { pathname } = useLocation();
   return (
-    <div className="col-span-2 px-3 py-3 bg-white h-[93vh]">
+    <div className="hidden md:block col-span-2 px-3 py-3 bg-white h-[93vh]">
       <ul className="space-y-2 text-[#5d596c]">
         <Link
           to="/"

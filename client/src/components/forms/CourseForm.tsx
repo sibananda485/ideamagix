@@ -12,11 +12,14 @@ export default function CourseForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors,isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const res = await axios.post("https://ideamagix-ecru.vercel.app/api/courses", data);
+      const res = await axios.post(
+        "https://ideamagix-ecru.vercel.app/api/courses",
+        data
+      );
       console.log(data);
       if (res.status === 201) {
         reset();
@@ -33,7 +36,7 @@ export default function CourseForm() {
     }
   };
   return (
-    <div className="bg-white rounded-md p-8">
+    <div className="bg-white rounded-md p-4 sm:p-8">
       <form onSubmit={handleSubmit(onSubmit)} className="w- mx-auto">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
@@ -153,7 +156,7 @@ export default function CourseForm() {
         </div>
 
         <div className="mt-6 flex items-center gap-x-6">
-        <button
+          <button
             disabled={isSubmitting}
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

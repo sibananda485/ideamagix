@@ -14,9 +14,9 @@ function App() {
       <BrowserRouter>
         <Toaster />
         <Navbar />
-        <div className="sm:grid grid-cols-12">
+        <div className="md:grid grid-cols-12">
           <Sidebar />
-          <div className="col-span-10 h-[93vh] p-3 overflow-y-auto">
+          <div className="col-span-10 h-[92vh] p-2 sm:p-3 overflow-y-auto">
             <Routes>
               <Route path="/" element={<h1>Home</h1>} />
               <Route path="/courses" element={<CourseTab />} />
