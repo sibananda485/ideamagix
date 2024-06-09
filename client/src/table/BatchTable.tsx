@@ -56,6 +56,9 @@ function BatchTable() {
           </tbody>
         </table>
         {loading && <p className="text-center my-10">Loading...</p>}
+        {!loading && batches.length === 0 && (
+          <p className="text-center my-10">🚫No data</p>
+        )}
       </div>
     </div>
   );

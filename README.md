@@ -16,3 +16,6 @@ MONGO_URL = "mongodb+srv://sahusiba485:YPZpPER6KQ1zcaw5@cluster0.vz3r8rp.mongodb
 
 Now check your browser
 
+Login details
+Email : admin@gmail.com 
+Passowrd : admin
